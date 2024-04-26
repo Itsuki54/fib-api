@@ -1,0 +1,18 @@
+{
+  "name": "fibonacci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+    },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.12.7",
+    "express": "^4.19.2",
+    "jest": "^29.7.0",
+    "json-bigint-native": "^1.2.0"
+  }
+}
