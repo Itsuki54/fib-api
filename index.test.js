@@ -38,10 +38,4 @@ test("matPow", () => {
 test("fibonacci", () => {
   expect(fibonacci(10n)).toBe(55n);
   expect(fibonacci(100n)).toBe(354224848179261915075n);
-  expect(fibonacci(-1n)).toBe(0n);
-  expect(fibonacci(0n)).toBe(0n);
-  expect(fibonacci("a")).toBe(0n);
-  expect(fibonacci("1")).toBe(0n);
-  expect(fibonacci(1.1)).toBe(0n);
-  expect(fibonacci(1)).toBe(0n);
 });

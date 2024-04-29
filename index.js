@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var Memo = {};
 const JSONbig = require("json-bigint-native");
+const { parse } = require("path");
 
 // 行列の掛け算
 function matMul(a, b) {
@@ -43,13 +44,14 @@ function fibonacci(n) {
 }
 
 app.get("/fib", function (req, res) {
-  if (isNaN(req.query.n)||Number.isInteger(req.query.n)||req.query.n<0) {
+  let n = Number(req.query.n);
+  if(isNaN(n) || n < 0|| !Number.isInteger(n)){
     return res.status(400).json({
       status: 400,
       message: "Bad Request",
     });
   }
-  const n = BigInt(req.query.n);
+  n = BigInt(req.query.n);
   const result = fibonacci(n);
   if (result === 0n) {
     return res.status(400).json({
@@ -64,7 +66,7 @@ app.get("/fib", function (req, res) {
   );
 });
 
-app.listen(3000, function () {});
+app.listen(4000, function () {});
 
 module.exports = app;
 module.exports.fibonacci = fibonacci;
