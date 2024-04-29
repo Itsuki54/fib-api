@@ -34,9 +34,6 @@ function matPow(a, n) {
 }
 
 function fibonacci(n) {
-  if (typeof n !== "bigint") return 0n;
-  if (n < 0n) return 0n;
-  if (Number.isInteger(n)) return 0n;
   let m = [
     [1n, 1n],
     [1n, 0n],
@@ -46,7 +43,7 @@ function fibonacci(n) {
 }
 
 app.get("/fib", function (req, res) {
-  if (isNaN(req.query.n)) {
+  if (isNaN(req.query.n)||Number.isInteger(req.query.n)||req.query.n<0) {
     return res.status(400).json({
       status: 400,
       message: "Bad Request",
